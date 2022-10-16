@@ -7,11 +7,10 @@
     tools:context=".MainActivity">
 
     <RelativeLayout
+        android:id="@+id/centerline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:id="@+id/centerline">
-    </RelativeLayout>
+        android:layout_centerInParent="true"></RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,7 +50,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/loginEmail"
+            android:id="@+id/loginEmailMain"
             android:hint="Enter your email"
             android:inputType="textEmailAddress">
 
@@ -69,14 +68,15 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/loginPass"
+            android:id="@+id/loginPassMain"
             android:hint="Enter your password"
             android:inputType="textPassword">
 
         </EditText>
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/loginBtn"
+        android:id="@+id/loginBtnMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/password"
@@ -88,10 +88,10 @@
     </com.google.android.material.button.MaterialButton>
 
     <TextView
-        android:id="@+id/forgotPass"
+        android:id="@+id/forgotPassMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/loginBtn"
+        android:layout_below="@id/loginBtnMain"
         android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
         android:text="Forgot Password?"
@@ -103,14 +103,14 @@
     </TextView>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/gotosignup"
+        android:id="@+id/gotosignupMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/forgotPass"
+        android:layout_below="@id/forgotPassMain"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="70dp"
         android:layout_marginRight="60dp"
-        android:text="New User! Want to sign in?">
+        android:text="New User! Want to sign Up?">
 
     </com.google.android.material.button.MaterialButton>
 

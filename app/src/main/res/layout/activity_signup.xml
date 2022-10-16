@@ -85,11 +85,12 @@
         android:text="Sign Up">
 
     </com.google.android.material.button.MaterialButton>
+
     <TextView
-        android:id="@+id/forgotPass"
+        android:id="@+id/gotologin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/loginBtn"
+        android:layout_below="@id/signupBtn"
         android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
         android:text="Log in Instead?"
