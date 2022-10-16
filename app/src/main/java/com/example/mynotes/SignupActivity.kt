@@ -17,7 +17,7 @@ class SignupActivity:AppCompatActivity() {
 
         val gotologin=findViewById<TextView>(R.id.gotologin)
         val signupBtn=findViewById<MaterialButton>(R.id.signupBtn) //register new user using fb
-        val signupEmai=findViewById<EditText>(R.id.loginEmail)
+        val signupEmail=findViewById<EditText>(R.id.loginEmail)
         val signupPass=findViewById<EditText>(R.id.loginPass)
         firebaseAuth=FirebaseAuth.getInstance()
         gotologin.setOnClickListener{
@@ -25,7 +25,7 @@ class SignupActivity:AppCompatActivity() {
             startActivity(intent)
         }
         signupBtn.setOnClickListener{
-            val email=signupEmai.text.toString().trim()
+            val email=signupEmail.text.toString().trim()
             val pass=signupPass.text.toString().trim()
             if(email.isEmpty()||pass.isEmpty())
                 Toast.makeText(this,"All fields required",Toast.LENGTH_SHORT).show()
@@ -36,7 +36,7 @@ class SignupActivity:AppCompatActivity() {
                 firebaseAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener{
                     if(it.isSuccessful){
                         Toast.makeText(this,"Successfully Registered",Toast.LENGTH_SHORT).show()
-                        sendEmailVerfication()//sends email to gmail once user has registered
+                        sendEmailVerification()//sends email to gmail once user has registered
                     }
                     else Toast.makeText(this,"Registration unsuccessful",Toast.LENGTH_SHORT).show()
                 }
@@ -45,7 +45,7 @@ class SignupActivity:AppCompatActivity() {
 
     }
 
-    private fun sendEmailVerfication() {
+    private fun sendEmailVerification() {
         val firebaseUser=firebaseAuth.currentUser
         if(firebaseUser!=null){//user exists
             firebaseUser.sendEmailVerification().addOnCompleteListener{

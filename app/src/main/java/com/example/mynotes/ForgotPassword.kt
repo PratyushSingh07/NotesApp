@@ -8,8 +8,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
+import com.google.firebase.auth.FirebaseAuth
 
 class ForgotPassword:AppCompatActivity() {
+    private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_password)
@@ -17,7 +19,7 @@ class ForgotPassword:AppCompatActivity() {
         val emailBox=findViewById<EditText>(R.id.emailbox)
         val recover=findViewById<MaterialButton>(R.id.recoverBtn)
         val backToLogin=findViewById<TextView>(R.id.gotologin)
-
+        firebaseAuth=FirebaseAuth.getInstance()
         backToLogin.setOnClickListener{
             val intent=Intent(this,MainActivity::class.java)
             startActivity(intent)
@@ -29,6 +31,13 @@ class ForgotPassword:AppCompatActivity() {
             }
             else{
                 // TODO: use firebase to send recovery email
+                firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener{
+                    if(it.isSuccessful){
+                        Toast.makeText(this,"Mail sent on registered email",Toast.LENGTH_SHORT).show()
+                        finish()
+                        startActivity(Intent(this,MainActivity::class.java))
+                    }
+                }
             }
         }
 
